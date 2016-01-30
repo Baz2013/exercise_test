@@ -72,6 +72,7 @@ while head < tail:
             tail += 1
             book[j] = 1
 
+        # 结束条件
         if que[tail - 1].x == end:
             flag = 1
             break
