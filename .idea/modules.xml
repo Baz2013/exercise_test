@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/exercise_test.iml" filepath="$PROJECT_DIR$/.idea/exercise_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../yapf-master/.idea/yapf-master.iml" filepath="$PROJECT_DIR$/../yapf-master/.idea/yapf-master.iml" />
     </modules>
   </component>
 </project>

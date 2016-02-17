@@ -4,7 +4,7 @@
 # 用邻接表存储图 (数组实现)
 
 # n 个顶点 m 个边 (有向边)
-n = 6
+n = 4
 m = 5
 
 # a,b,c 表示a到b城市的里程为c
@@ -31,3 +31,11 @@ for line in data_str.split('\n'):
     i += 1
 
 print u, v, w, first, next_edge
+
+# 遍历所有边
+
+for i in range(1, n + 1):
+    k = first[i]
+    while k != -1:
+        print '%d %d %d' % (u[k], v[k], w[k])
+        k = next_edge[k]
