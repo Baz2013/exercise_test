@@ -70,5 +70,6 @@ for i in range(1, n):
 
 
 # 输出最终的结果
+print '-'*120
 for i in range(1, len(dis)):
     print dis[i],
