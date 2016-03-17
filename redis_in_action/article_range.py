@@ -2,9 +2,9 @@
 
 # redis in action 第一章 文章排名示例
 
-import redis
-from const_vars import *
 import time
+
+from const_vars import *
 
 
 def post_article(conn, user, title, link):

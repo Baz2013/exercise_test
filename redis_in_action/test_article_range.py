@@ -2,9 +2,10 @@
 
 import redis
 from article_range import *
+from const_vars import *
 
 if __name__ == '__main__':
-    redis_conn = redis.Redis(host='123.57.14.82', port=7001, db=0)
+    redis_conn = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB)
 
     # #test article post
     # article_user = 'gucb1'
