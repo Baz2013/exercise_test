@@ -90,4 +90,4 @@ for daytime in daytime_elements:
     # print daytime[0],daytime[1].min_time,daytime[1].max_time
     day, min_time, max_time = daytime[0], daytime[1].min_time, daytime[1].max_time
     hours = ((get_seconds(day + ' ' + max_time) - get_seconds(day + ' ' + min_time))/1800)/2.0
-    print day,hours
+    print day + '\t'+ str(hours)
